@@ -1,19 +1,29 @@
-let price=0;
-let iva=0;
+
 let totalPrice=0;
 let ivaPrice=0;
+let iva;
+let price;
 
-price=prompt("Dame el precio", 0);
-iva=prompt("Dime el IVA","%")*0.01;
 
-calculateIVA();
-sumarIVA();
+function app(){
+    pedirDatos();
+    calculateIVA();
+    sumarIVA();
+    imprimirPrice();
+}
 
-document.write(totalPrice);
+app();
 
 function calculateIVA(){
-    ivaPrice=price*iva;
+    ivaPrice=price*(iva*0.01);
 }
 function sumarIVA(){
     totalPrice = parseFloat(price)+parseFloat(ivaPrice);
+}
+function pedirDatos(){
+    price=prompt("Dame el precio", 0);
+    iva=prompt("Dime el IVA","%");
+}
+function imprimirPrice(){
+    document.write(totalPrice);
 }
